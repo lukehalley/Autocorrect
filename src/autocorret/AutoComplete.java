@@ -9,6 +9,7 @@ public interface AutoComplete{
 
     // Returns the highest weighted matching term, or null if no matching term.
     public String bestMatch(String prefix);
+// Defines the contract for autocomplete implementations
 
     // Returns the highest weighted k matching terms (in descending order of weight), as an
     // iterable.
