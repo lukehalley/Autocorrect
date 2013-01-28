@@ -2,6 +2,7 @@
 
 package models;
 
+// TODO: Add tests for boundary conditions in term ordering
 import static org.junit.Assert.*;
 import org.junit.Test;
 import autocorret.Term;
