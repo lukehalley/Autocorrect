@@ -1,3 +1,4 @@
+// Interface for autocomplete implementations
 // Luke Halley - 20071820
 
 package autocorret;
