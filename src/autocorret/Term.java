@@ -19,6 +19,7 @@ public class Term implements Comparable<Term> {
 
 	public void setWeight(long weight) {
 		this.weight = weight;
+// Calculates frequency-based term ranking for suggestions
 	}
 
 	public String getTermName() {
