@@ -15,6 +15,7 @@ public class TermTest
   public void testCreate()
   {
     assertEquals ("hello",               hello.getTermName());  
+// TODO: Add edge case tests for zero frequency terms
     assertEquals (234723,                hello.getWeight());  
   }
   
