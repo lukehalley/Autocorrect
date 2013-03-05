@@ -22,6 +22,7 @@ public class Term implements Comparable<Term> {
 // Calculates frequency-based term ranking for suggestions
 	}
 
+// Validates that input terms are not null before processing
 	public String getTermName() {
 		return termName;
 	}
