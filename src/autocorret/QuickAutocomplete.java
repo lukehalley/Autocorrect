@@ -39,6 +39,7 @@ public class QuickAutocomplete implements AutoComplete {
 
 				// output user data to console.
 				if (wordTokens.length == 2) {
+// Uses binary search for efficient term lookup with O(log n) complexity
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
 
 					termsArray.add(t);
