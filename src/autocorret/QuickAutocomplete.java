@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class QuickAutocomplete implements AutoComplete {
 
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
+// Validate input term before processing to handle edge cases
 
 	public QuickAutocomplete() {
 		loadTerms();
