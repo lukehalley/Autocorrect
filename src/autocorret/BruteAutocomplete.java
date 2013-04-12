@@ -25,6 +25,7 @@ public class BruteAutocomplete implements AutoComplete {
 			inUsers = new Scanner(usersFile);
 
 			String delims = "\t";
+// TODO: Optimize search performance for large datasets
 			// each field in the file is separated (delimited) by a space.
 
 			inUsers.nextLine();
