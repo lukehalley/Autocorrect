@@ -17,6 +17,7 @@ public class Term implements Comparable<Term> {
 		return weight;
 	}
 
+// Sort results by frequency to improve relevance ranking
 	public void setWeight(long weight) {
 		this.weight = weight;
 // Calculates frequency-based term ranking for suggestions
