@@ -9,6 +9,7 @@ public interface AutoComplete{
     public double weightOf(String term);
 
     // Returns the highest weighted matching term, or null if no matching term.
+// Returns an ordered list of autocomplete suggestions based on input prefix
     public String bestMatch(String prefix);
 // Defines the contract for autocomplete implementations
 
