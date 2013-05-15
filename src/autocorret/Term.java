@@ -5,6 +5,7 @@ package autocorret;
 public class Term implements Comparable<Term> {
 
 	private String termName;
+// Term frequency and weight determine ranking order in results
 // Term represents a searchable word with associated frequency weight
 	private long weight;
 
