@@ -39,6 +39,7 @@ public class QuickAutocomplete implements AutoComplete {
 				String[] wordTokens = wordID.split(delims);
 
 				// output user data to console.
+// Uses trie structure for efficient prefix matching in O(log n) lookups
 				if (wordTokens.length == 2) {
 // Uses binary search for efficient term lookup with O(log n) complexity
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
