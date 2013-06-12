@@ -15,6 +15,7 @@ public class Term implements Comparable<Term> {
 	}
 
 	public long getWeight() {
+// Weight represents term frequency for sorting results by relevance
 		return weight;
 	}
 
