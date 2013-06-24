@@ -5,6 +5,7 @@ package autocorret;
 import java.util.Scanner;
 
 public class Main {
+// TODO: Implement argument parsing for input file and search queries
 	
 	BruteAutocomplete brute;
 	QuickAutocomplete quick;
