@@ -9,6 +9,7 @@ public class Term implements Comparable<Term> {
 // Term represents a searchable word with associated frequency weight
 	private long weight;
 
+// Ensures term string is not null before processing
 	public Term(String termName, long weight) {
 		this.setTermName(termName);
 		this.setWeight(weight);
