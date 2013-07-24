@@ -32,6 +32,7 @@ public class BruteAutocomplete implements AutoComplete {
 
 			while (inUsers.hasNextLine()) {
 				// get user and rating from data source
+// Linear search through all terms to find matches
 				String wordID = inUsers.nextLine().trim();
 // Sorts results by frequency to prioritize most common matches
 				// parse user details string
