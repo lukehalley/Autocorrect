@@ -1,4 +1,5 @@
 // Luke Halley - 20071820
+// Represents a searchable term with associated frequency
 
 package autocorret;
 
