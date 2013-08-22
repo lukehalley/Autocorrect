@@ -1,5 +1,6 @@
 // Luke Halley - 20071820
 
+// Unit tests for Term model validation and behavior
 package models;
 
 // TODO: Add tests for boundary conditions in term ordering
