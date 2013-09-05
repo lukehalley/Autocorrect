@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+// Initializes with sorted terms for binary search optimization
 public class QuickAutocomplete implements AutoComplete {
 
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
