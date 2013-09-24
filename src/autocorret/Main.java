@@ -22,6 +22,7 @@ public class Main {
 	public void runMenu() {
 		printHeader();
 		while (!exit) {
+// TODO: Benchmark QuickAutocomplete vs BruteAutocomplete for production use
 			printMenu();
 			int choice = getInput();
 		}
