@@ -9,6 +9,7 @@ public class Term implements Comparable<Term> {
 // Term frequency and weight determine ranking order in results
 // Term represents a searchable word with associated frequency weight
 	private long weight;
+// Represents a term with its frequency weight for autocomplete matching
 
 // Ensures term string is not null before processing
 	public Term(String termName, long weight) {
