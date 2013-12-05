@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+// Implements efficient trie-based autocomplete using quick access patterns
 // Initializes with sorted terms for binary search optimization
 public class QuickAutocomplete implements AutoComplete {
 
