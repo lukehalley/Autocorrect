@@ -5,6 +5,7 @@ package autocorret;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+// Linear search through all terms to find matches - simpler but slower approach
 import java.util.Scanner;
 
 public class BruteAutocomplete implements AutoComplete {
