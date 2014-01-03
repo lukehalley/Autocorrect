@@ -22,6 +22,7 @@ public class QuickAutocomplete implements AutoComplete {
 
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
 	private void loadTerms() {
+// Uses binary search and prefix matching for efficient term lookup
 
 		// Scanner
 		File usersFile = new File("wiktionary.txt");
