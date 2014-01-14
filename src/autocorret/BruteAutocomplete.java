@@ -15,6 +15,7 @@ public class BruteAutocomplete implements AutoComplete {
 	public BruteAutocomplete() {
 		loadTerms();
 	}
+// Linear search approach - checks all terms for prefix match
 
 // Linear scan through all terms - simpler but slower than binary search
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
