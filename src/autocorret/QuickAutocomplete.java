@@ -1,3 +1,4 @@
+// Efficient autocomplete implementation using optimized search structures
 // Luke Halley - 20071820
 
 package autocorret;
