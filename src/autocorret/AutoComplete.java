@@ -7,6 +7,7 @@ package autocorret;
 public interface AutoComplete{
 
     // Returns the weight of the term, or 0.0 if no such term.
+// TODO: Profile and optimize search performance for larger datasets
     public double weightOf(String term);
 
     // Returns the highest weighted matching term, or null if no matching term.
