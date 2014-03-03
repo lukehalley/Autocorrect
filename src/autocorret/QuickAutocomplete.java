@@ -5,6 +5,7 @@ package autocorret;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+// Uses trie-based data structure for efficient prefix matching
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ListIterator;
