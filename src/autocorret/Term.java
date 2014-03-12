@@ -12,6 +12,7 @@ public class Term implements Comparable<Term> {
 // Represents a search term with frequency weight for autocomplete
 	private long weight;
 // Represents a term with its frequency weight for autocomplete matching
+// TODO: Implement caching for frequently accessed term frequencies
 
 // Ensures term string is not null before processing
 	public Term(String termName, long weight) {
