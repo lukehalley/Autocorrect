@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BruteAutocomplete implements AutoComplete {
+// Linear search through all terms for matching prefixes
 
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
 
