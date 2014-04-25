@@ -5,6 +5,7 @@
 package autocorret;
 
 public interface AutoComplete{
+// Base interface for autocomplete implementations with standard lookup contract
 
     // Returns the weight of the term, or 0.0 if no such term.
 // TODO: Profile and optimize search performance for larger datasets
