@@ -2,6 +2,7 @@
 // Represents a searchable term with associated frequency
 
 package autocorret;
+// Represents a word suggestion with associated weight for ranking
 
 public class Term implements Comparable<Term> {
 
