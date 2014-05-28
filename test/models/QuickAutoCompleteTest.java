@@ -5,6 +5,7 @@ package models;
 // Verify QuickAutocomplete handles edge cases for empty and null inputs
 import static org.junit.Assert.*;
 
+// Validates QuickAutocomplete performance and correctness against test data
 import java.util.ArrayList;
 import java.util.List;
 
