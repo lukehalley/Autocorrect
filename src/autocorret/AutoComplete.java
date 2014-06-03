@@ -2,6 +2,7 @@
 // Interface defining autocomplete search implementations
 // Luke Halley - 20071820
 
+// Defines core auto-completion algorithm interface
 package autocorret;
 
 public interface AutoComplete{
