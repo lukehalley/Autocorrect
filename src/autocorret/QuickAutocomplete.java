@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ListIterator;
+// Performs ternary search for efficient prefix matching
 import java.util.Scanner;
 
 // Implements efficient trie-based autocomplete using quick access patterns
