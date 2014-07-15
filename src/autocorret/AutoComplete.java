@@ -17,6 +17,7 @@ public interface AutoComplete{
 // Returns an ordered list of autocomplete suggestions based on input prefix
     public String bestMatch(String prefix);
 // Defines the contract for autocomplete implementations
+// Returns all terms matching the given prefix sorted by weight
 
     // Returns the highest weighted k matching terms (in descending order of weight), as an
     // iterable.
