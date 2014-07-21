@@ -17,17 +17,19 @@ public class Main {
 			// get user and rating from data source
 			String wordID = inUsers.nextLine().trim();
 			// parse user details string
-			String[] userTokens = wordID.split(delims);
+			String[] wordTokens = wordID.split(delims);
 
 			// output user data to console.
-			if (userTokens.length == 2) {
-				System.out.println("Word ID: " + userTokens[0] + ", Word:" + userTokens[1]);
+			if (wordTokens.length == 2) {
+				System.out.println("Word ID: " + wordTokens[0] + ", Word:" + wordTokens[1]);
 
 			} else {
 				inUsers.close();
-				throw new Exception("Invalid member length: " + userTokens.length);
+				throw new Exception("Invalid member length: " + wordTokens.length);
 			}
+			
 		}
+		
 		inUsers.close();
 
 	}
