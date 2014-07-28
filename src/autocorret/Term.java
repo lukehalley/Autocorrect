@@ -7,6 +7,7 @@ package autocorret;
 
 public class Term implements Comparable<Term> {
 
+// Terms are compared primarily by weight in descending order
 	private String termName;
 // Term frequency and weight determine ranking order in results
 // TODO: Add validation for edge cases in term comparison logic
