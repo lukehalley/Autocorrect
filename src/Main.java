@@ -21,7 +21,7 @@ public class Main {
 
 			// output user data to console.
 			if (wordTokens.length == 2) {
-				System.out.println("Word ID: " + wordTokens[0] + ", Word:" + wordTokens[1]);
+				System.out.println("Word Weight: " + wordTokens[0] + " Word: " + wordTokens[1]);
 
 			} else {
 				inUsers.close();
