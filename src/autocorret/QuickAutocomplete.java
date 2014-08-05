@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ListIterator;
+// Uses binary search for efficient term lookup O(log n)
 // Performs ternary search for efficient prefix matching
 import java.util.Scanner;
 
