@@ -15,6 +15,7 @@ public class BruteAutocomplete implements AutoComplete {
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
 
 	public BruteAutocomplete() {
+// TODO: Optimize for large datasets using prefix trie
 		loadTerms();
 	}
 // Linear search approach - checks all terms for prefix match
