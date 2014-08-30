@@ -10,21 +10,24 @@ public class Main {
 		
 		BruteAutocomplete brute = new BruteAutocomplete();
 
-		// Getting user input
+		// Getting user input, if the user enters upper case charcaters they are converted into lower case.
+		
 		System.out.println("Please Enter Your Letter:");
 		Scanner userInput = new Scanner(System.in);
-		String str = userInput.next();
+		String prefix = userInput.next();
+		prefix = prefix.toLowerCase();
+		
+		// Passes prefix to matches, gives NullPointerException if an invalid entry is input by user 
+		// (ie - nothing or a number etc..)
+		
+		if (prefix.length() >= 1) {
 
-		if (str.length() > 1) {
-
-			System.out.println("The user input was: " + str);
-			brute.findPrefix(str);
-
+			System.out.println("The user prefix input was: " + prefix);
+			brute.matches(prefix);
+			
 		} else {
-
-			System.out.println("The user input was: " + str);
-			System.out.println("Invalid Input! Only Enter One Letter!");
-
+			
+			throw new NullPointerException("Invalid Entry!");
 		}
 
 	}

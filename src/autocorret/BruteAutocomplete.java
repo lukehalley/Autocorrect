@@ -12,6 +12,8 @@ public class BruteAutocomplete implements AutoComplete {
 	public BruteAutocomplete() {
 		loadTerms();
 	}
+
+	//PRE MADE
 	
 	@Override
 	public double weightOf(String term) {
@@ -21,8 +23,20 @@ public class BruteAutocomplete implements AutoComplete {
 
 	@Override
 	public String bestMatch(String prefix) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		for (Term t : terms) {
+
+			if (t.getTermName().startsWith(prefix)) {
+
+				System.out.println(t);
+			}
+			
+			if (prefix == null) {
+				throw new IllegalArgumentException("Input is null");
+			}
+
+		}
+		return prefix;
 	}
 
 	@Override
@@ -31,8 +45,12 @@ public class BruteAutocomplete implements AutoComplete {
 		return null;
 	}
 
+	//MINE
+	
+	//Loads all terms from wiktionary.txt, taking away the spaces and lines.
+	
 	private void loadTerms() {
-		
+
 		// Scanner
 		File usersFile = new File("wiktionary.txt");
 		Scanner inUsers;
@@ -62,23 +80,30 @@ public class BruteAutocomplete implements AutoComplete {
 			}
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
+			
 		}
 
 	}
 
-	public void findPrefix(String str) {
+	public void matches(String prefix) throws IllegalArgumentException {
 
 		for (Term t : terms) {
 
-			if (t.getTermName().startsWith(str)) {
+			if (t.getTermName().startsWith(prefix)) {
 
 				System.out.println(t);
 			}
 			
+			if (prefix == null) {
+				throw new IllegalArgumentException("Input is null");
+			}
+
 		}
-		
+
 	}
-	
+
+
+
 }
