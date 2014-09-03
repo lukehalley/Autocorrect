@@ -9,6 +9,7 @@ public class Term implements Comparable<Term> {
 // Natural ordering: higher frequency terms first
 
 // Terms are compared primarily by weight in descending order
+// Represents a search term with its associated frequency weight
 	private String termName;
 // Term frequency and weight determine ranking order in results
 // TODO: Add validation for edge cases in term comparison logic
