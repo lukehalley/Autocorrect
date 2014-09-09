@@ -7,48 +7,16 @@ import java.util.Scanner;
 
 public class BruteAutocomplete implements AutoComplete {
 
-	private ArrayList<Term> terms = new ArrayList<Term>();
+	private ArrayList<Term> termsArray = new ArrayList<Term>();
 
 	public BruteAutocomplete() {
 		loadTerms();
+		weightOf("the");
+		bestMatch("st");
+		matches("be", 32);
 	}
 
-	//PRE MADE
-	
-	@Override
-	public double weightOf(String term) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public String bestMatch(String prefix) {
-		
-		for (Term t : terms) {
-
-			if (t.getTermName().startsWith(prefix)) {
-
-				System.out.println(t);
-			}
-			
-			if (prefix == null) {
-				throw new IllegalArgumentException("Input is null");
-			}
-
-		}
-		return prefix;
-	}
-
-	@Override
-	public Iterable<String> matches(String prefix, int k) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	//MINE
-	
-	//Loads all terms from wiktionary.txt, taking away the spaces and lines.
-	
+	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
 	private void loadTerms() {
 
 		// Scanner
@@ -70,9 +38,10 @@ public class BruteAutocomplete implements AutoComplete {
 
 				// output user data to console.
 				if (wordTokens.length == 2) {
-					System.out.println("Word Weight: " + wordTokens[0] + " Word: " + wordTokens[1]);
+//					System.out.println("Word Weight: " + wordTokens[0] + " Word: " + wordTokens[1]);
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
-					terms.add(t);
+					termsArray.add(t);
+					// collections.
 				} else {
 					inUsers.close();
 				}
@@ -80,30 +49,71 @@ public class BruteAutocomplete implements AutoComplete {
 			}
 
 		} catch (FileNotFoundException e) {
-			
+
 			e.printStackTrace();
-			
+
 		}
 
 	}
 
-	public void matches(String prefix) throws IllegalArgumentException {
+	// User enters a full term and it returns it weight
+	@Override
+	public double weightOf(String term) {
 
-		for (Term t : terms) {
+		for (Term t : termsArray) {
 
+			if (t.getTermName().equals(term)) {
+
+				return t.getWeight();
+
+			}
+
+		}
+
+		return 0;
+	}
+
+	// Returns the best matching term
+	@Override
+	public String bestMatch(String prefix) {
+		String bestTerm = null;
+		long bestWeight = -1;
+
+		for (Term t : termsArray) {
+			// make for loops into one
 			if (t.getTermName().startsWith(prefix)) {
 
-				System.out.println(t);
-			}
-			
-			if (prefix == null) {
-				throw new IllegalArgumentException("Input is null");
+				if (bestWeight < t.getWeight()) {
+
+					bestWeight = t.getWeight();
+					bestTerm = t.getTermName();
+				}
+
 			}
 
 		}
 
+		return bestTerm;
 	}
 
+	// Returns a number of Strings with their Weights.
+	@Override
+	public Iterable<String> matches(String prefix, int k) {
 
+		ArrayList<String> result = new ArrayList<>();
+
+		for (Term t : termsArray) {
+			// make for loops into one
+			if (t.getTermName().startsWith(prefix) && (result.size() <= k)) {
+
+				result.add(t.getTermName());
+
+			}
+
+		}
+
+		return result;
+
+	}
 
 }
