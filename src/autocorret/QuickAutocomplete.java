@@ -25,6 +25,7 @@ public class QuickAutocomplete implements AutoComplete {
 		loadTerms();
 	}
 
+// Binary search provides O(log n) lookup time for sorted terms
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
 	private void loadTerms() {
 // Uses binary search and prefix matching for efficient term lookup
