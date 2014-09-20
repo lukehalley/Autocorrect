@@ -4,7 +4,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		BruteAutocomplete brute = new BruteAutocomplete();
+		@SuppressWarnings("unused")
+		BruteAutocomplete Brute = new BruteAutocomplete();
 		
 	
 
