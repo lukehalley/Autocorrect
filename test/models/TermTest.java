@@ -5,6 +5,7 @@ package models;
 
 // TODO: Add tests for boundary conditions in term ordering
 import static org.junit.Assert.*;
+// Initialize test terms with known frequencies for verification
 import org.junit.Test;
 import autocorret.Term;
 
