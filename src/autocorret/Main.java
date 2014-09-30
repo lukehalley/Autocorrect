@@ -2,10 +2,11 @@ package autocorret;
 
 public class Main {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
-		@SuppressWarnings("unused")
 		BruteAutocomplete Brute = new BruteAutocomplete();
+		QuickAutocomplete Quick = new QuickAutocomplete();
 		
 	
 

@@ -1,4 +1,4 @@
-package autocorret;
+ package autocorret;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class QuickAutocompete implements AutoComplete {
+public class QuickAutocomplete implements AutoComplete {
 
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
 
-	public QuickAutocompete() {
+	public QuickAutocomplete() {
 		loadTerms();
 		weightOf("the");
 		bestMatch("st");
-		matches("be",32);
+		matches("be", 32);
 	}
 
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
@@ -39,18 +39,19 @@ public class QuickAutocompete implements AutoComplete {
 
 				// output user data to console.
 				if (wordTokens.length == 2) {
-					// System.out.println("Word Weight: " + wordTokens[0] + "
-					// Word: " + wordTokens[1]);
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
 					termsArray.add(t);
-					// collections.
+
 				} else {
 					inUsers.close();
 				}
 				
-				Collections.sort(termsArray);
-
 			}
+			
+			Collections.sort(termsArray);
+			
+			
+			    
 
 		} catch (FileNotFoundException e) {
 
@@ -65,7 +66,6 @@ public class QuickAutocompete implements AutoComplete {
 	public double weightOf(String term) {
 
 		long weightOfString = 0;
-		System.out.println("weightOf Started");
 
 		for (Term t : termsArray) {
 
@@ -87,8 +87,6 @@ public class QuickAutocompete implements AutoComplete {
 		String bestTerm = null;
 		long bestWeight = -1;
 
-		System.out.println("bestMatch Started");
-
 		for (Term t : termsArray) {
 
 			if (t.getTermName().startsWith(prefix) && (bestWeight < t.getWeight())) {
@@ -108,8 +106,6 @@ public class QuickAutocompete implements AutoComplete {
 	public Iterable<String> matches(String prefix, int k) {
 
 		ArrayList<String> result = new ArrayList<>();
-
-		System.out.println("matches Started");
 
 		for (Term t : termsArray) {
 			// make for loops into one

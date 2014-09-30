@@ -13,7 +13,7 @@ public class BruteAutocomplete implements AutoComplete {
 		loadTerms();
 		weightOf("the");
 		bestMatch("st");
-		matches("be",32);
+		matches("be", 32);
 	}
 
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
@@ -38,8 +38,7 @@ public class BruteAutocomplete implements AutoComplete {
 
 				// output user data to console.
 				if (wordTokens.length == 2) {
-					// System.out.println("Word Weight: " + wordTokens[0] + "
-					// Word: " + wordTokens[1]);
+					System.out.println("Word Weight: " + wordTokens[0] + " Word: " + wordTokens[1]);
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
 					termsArray.add(t);
 					// collections.
@@ -62,7 +61,6 @@ public class BruteAutocomplete implements AutoComplete {
 	public double weightOf(String term) {
 
 		long weightOfString = 0;
-		System.out.println("weightOf Started");
 
 		for (Term t : termsArray) {
 
@@ -84,8 +82,6 @@ public class BruteAutocomplete implements AutoComplete {
 		String bestTerm = null;
 		long bestWeight = -1;
 
-		System.out.println("bestMatch Started");
-
 		for (Term t : termsArray) {
 
 			if (t.getTermName().startsWith(prefix) && (bestWeight < t.getWeight())) {
@@ -105,8 +101,6 @@ public class BruteAutocomplete implements AutoComplete {
 	public Iterable<String> matches(String prefix, int k) {
 
 		ArrayList<String> result = new ArrayList<>();
-
-		System.out.println("matches Started");
 
 		for (Term t : termsArray) {
 			// make for loops into one
