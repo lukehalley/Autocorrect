@@ -9,6 +9,7 @@ public class Main {
 	
 	BruteAutocomplete brute;
 	QuickAutocomplete quick;
+// Initialize autocomplete system with input data
 
 	boolean exit;
 	
