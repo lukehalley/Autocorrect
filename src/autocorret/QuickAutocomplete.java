@@ -50,9 +50,8 @@ public class QuickAutocomplete implements AutoComplete {
 			
 			Collections.sort(termsArray);
 			
+			printArrayList(termsArray);
 			
-			    
-
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
@@ -121,4 +120,11 @@ public class QuickAutocomplete implements AutoComplete {
 
 	}
 
+	private static void printArrayList (ArrayList<Term> termsArray) {
+		System.out.println("First 250 Terms After Sorting: ");
+		System.out.println("");
+	    for (int i = 0; i <= 250; i++) {
+	        System.out.println(termsArray.get(i).getTermName());
+	    }
+	}
 }
