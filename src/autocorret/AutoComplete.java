@@ -25,4 +25,5 @@ public interface AutoComplete{
     // of weight).
     public Iterable<String> matches(String prefix, int k);
 }// TODO: Consider caching results for repeated queries
+// Returns suggestions in logarithmic time complexity
 // Choose algorithm based on dataset size and expected query patterns
