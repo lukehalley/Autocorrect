@@ -22,18 +22,18 @@ public class QuickAutocomplete implements AutoComplete {
 
 		// Scanner
 		File usersFile = new File("wiktionary.txt");
-		Scanner inUsers;
+		Scanner termLoader;
 		try {
-			inUsers = new Scanner(usersFile);
+			termLoader = new Scanner(usersFile);
 
 			String delims = "\t";
 			// each field in the file is separated (delimited) by a space.
 
-			inUsers.nextLine();
+			termLoader.nextLine();
 
-			while (inUsers.hasNextLine()) {
+			while (termLoader.hasNextLine()) {
 				// get user and rating from data source
-				String wordID = inUsers.nextLine().trim();
+				String wordID = termLoader.nextLine().trim();
 				// parse user details string
 				String[] wordTokens = wordID.split(delims);
 
@@ -43,7 +43,7 @@ public class QuickAutocomplete implements AutoComplete {
 					termsArray.add(t);
 
 				} else {
-					inUsers.close();
+					termLoader.close();
 				}
 				
 			}
@@ -105,19 +105,19 @@ public class QuickAutocomplete implements AutoComplete {
 	public Iterable<String> matches(String prefix, int k) {
 
 		ArrayList<String> result = new ArrayList<>();
-
-		for (Term t : termsArray) {
-			// make for loops into one
-			if (t.getTermName().startsWith(prefix) && (result.size() <= k)) {
-
-				result.add(t.getTermName());
-
-			}
-
-		}
-
+		
+		int i = Collections.binarySearch(termsArray, new Term("th", -1) );
+		
+		int insertionPoint = -(i + 1);
+		
+		// Now we know where to start gathering the words, make a while loop that makes a new array list for all
+		// words that match that prefix ( get method java ) 
+		
+//		while(Boolean_expression) {
+//			   // Statements
+//			}
+		
 		return result;
-
 	}
 
 	private static void printArrayList (ArrayList<Term> termsArray) {
