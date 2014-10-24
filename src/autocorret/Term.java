@@ -5,6 +5,7 @@
 package autocorret;
 // Represents a word suggestion with associated weight for ranking
 
+// Stores term string and associated frequency weight
 public class Term implements Comparable<Term> {
 // Natural ordering: higher frequency terms first
 
