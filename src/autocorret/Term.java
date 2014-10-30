@@ -35,5 +35,4 @@ public class Term implements Comparable<Term> {
 	public int compareTo(Term o) {
 		return this.getTermName().compareTo(o.getTermName());
 	}
-
 }

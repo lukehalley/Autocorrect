@@ -1,9 +1,10 @@
- package autocorret;
+package autocorret;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.ListIterator;
 import java.util.Scanner;
 
 public class QuickAutocomplete implements AutoComplete {
@@ -40,18 +41,19 @@ public class QuickAutocomplete implements AutoComplete {
 				// output user data to console.
 				if (wordTokens.length == 2) {
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
+
 					termsArray.add(t);
 
 				} else {
 					termLoader.close();
 				}
-				
+
 			}
-			
+
 			Collections.sort(termsArray);
-			
+
 			printArrayList(termsArray);
-			
+
 		} catch (FileNotFoundException e) {
 
 			e.printStackTrace();
@@ -104,27 +106,31 @@ public class QuickAutocomplete implements AutoComplete {
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 
-		ArrayList<String> result = new ArrayList<>();
-		
-		int i = Collections.binarySearch(termsArray, new Term("th", -1) );
-		
+		int i = Collections.binarySearch(termsArray, new Term("th", -1));
 		int insertionPoint = -(i + 1);
-		
-		// Now we know where to start gathering the words, make a while loop that makes a new array list for all
-		// words that match that prefix ( get method java ) 
-		
-//		while(Boolean_expression) {
-//			   // Statements
-//			}
-		
-		return result;
+
+		ArrayList<String> binaryResult = new ArrayList<>();
+		ListIterator<Term> it = termsArray.listIterator(insertionPoint);
+
+		// Now we know where to start gathering the words, make a while loop
+		// that makes a new array list for all
+		// words that match that prefix ( get method java )
+
+		for (Term termQuick : termsArray) {
+
+			while (termQuick.getTermName().startsWith(prefix) && it.hasNext()) {
+				binaryResult.add(termQuick.getTermName());
+			}
+		}
+
+		return binaryResult;
 	}
 
-	private static void printArrayList (ArrayList<Term> termsArray) {
+	private static void printArrayList(ArrayList<Term> termsArray) {
 		System.out.println("First 250 Terms After Sorting: ");
 		System.out.println("");
-	    for (int i = 0; i <= 250; i++) {
-	        System.out.println(termsArray.get(i).getTermName());
-	    }
+		for (int i = 0; i <= 250; i++) {
+			System.out.println(termsArray.get(i).getTermName());
+		}
 	}
 }
