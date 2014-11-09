@@ -52,7 +52,11 @@ public class QuickAutocomplete implements AutoComplete {
 
 			Collections.sort(termsArray);
 
-			printArrayList(termsArray);
+			printTermsArray(termsArray);
+			
+			
+			
+			
 
 		} catch (FileNotFoundException e) {
 
@@ -109,12 +113,11 @@ public class QuickAutocomplete implements AutoComplete {
 		int i = Collections.binarySearch(termsArray, new Term("th", -1));
 		int insertionPoint = -(i + 1);
 
-		ArrayList<String> binaryResult = new ArrayList<>();
-		ListIterator<Term> it = termsArray.listIterator(insertionPoint);
+		ArrayList <String> binaryResult = new ArrayList<>();
+		ListIterator <Term> it = termsArray.listIterator(insertionPoint);
 
-		// Now we know where to start gathering the words, make a while loop
-		// that makes a new array list for all
-		// words that match that prefix ( get method java )
+		// Goes through termsArray like normal but now goes straight to
+		// the beginning index (insertionPoint) making it the process faster
 
 		for (Term termQuick : termsArray) {
 
@@ -124,13 +127,15 @@ public class QuickAutocomplete implements AutoComplete {
 		}
 
 		return binaryResult;
+
 	}
 
-	private static void printArrayList(ArrayList<Term> termsArray) {
+	private static void printTermsArray(ArrayList<Term> termsArray) {
 		System.out.println("First 250 Terms After Sorting: ");
 		System.out.println("");
 		for (int i = 0; i <= 250; i++) {
 			System.out.println(termsArray.get(i).getTermName());
 		}
 	}
+
 }
