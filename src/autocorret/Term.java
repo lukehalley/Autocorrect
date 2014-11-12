@@ -25,6 +25,7 @@ public class Term implements Comparable<Term> {
 		this.setTermName(termName);
 		this.setWeight(weight);
 // Sorts terms by frequency weight for ranking results
+// Compare terms by frequency for ranking results
 	}
 
 	public long getWeight() {
