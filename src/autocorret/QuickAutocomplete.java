@@ -13,9 +13,6 @@ public class QuickAutocomplete implements AutoComplete {
 
 	public QuickAutocomplete() {
 		loadTerms();
-		weightOf("the");
-		bestMatch("st");
-		matches("be", 32);
 	}
 
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
@@ -52,14 +49,9 @@ public class QuickAutocomplete implements AutoComplete {
 
 			Collections.sort(termsArray);
 
-			printTermsArray(termsArray);
-			
-			
-			
-			
-
 		} catch (FileNotFoundException e) {
 
+			System.out.println("Could Not Read In File!");
 			e.printStackTrace();
 
 		}
@@ -72,17 +64,24 @@ public class QuickAutocomplete implements AutoComplete {
 
 		long weightOfString = 0;
 
-		for (Term t : termsArray) {
+		try {
 
-			if (t.getTermName().equals(term)) {
+			for (Term t : termsArray) {
 
-				weightOfString = t.getWeight();
+				if (t.getTermName().equals(term)) {
+
+					weightOfString = t.getWeight();
+
+				}
 
 			}
 
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException: " + e.getMessage());
 		}
 
 		return weightOfString;
+
 	}
 
 	// Returns the best matching term
@@ -92,15 +91,21 @@ public class QuickAutocomplete implements AutoComplete {
 		String bestTerm = null;
 		long bestWeight = -1;
 
-		for (Term t : termsArray) {
+		try {
 
-			if (t.getTermName().startsWith(prefix) && (bestWeight < t.getWeight())) {
+			for (Term t : termsArray) {
 
-				bestWeight = t.getWeight();
-				bestTerm = t.getTermName();
+				if (t.getTermName().startsWith(prefix) && (bestWeight < t.getWeight())) {
+
+					bestWeight = t.getWeight();
+					bestTerm = t.getTermName();
+
+				}
 
 			}
 
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException: " + e.getMessage());
 		}
 
 		return bestTerm;
@@ -110,32 +115,32 @@ public class QuickAutocomplete implements AutoComplete {
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 
-		int i = Collections.binarySearch(termsArray, new Term("th", -1));
+		int i = Collections.binarySearch(termsArray, new Term(prefix, k));
 		int insertionPoint = -(i + 1);
 
-		ArrayList <String> binaryResult = new ArrayList<>();
-		ListIterator <Term> it = termsArray.listIterator(insertionPoint);
+		ArrayList<String> binaryResult = new ArrayList<>();
+		ListIterator<Term> listIterator = termsArray.listIterator(insertionPoint);
 
 		// Goes through termsArray like normal but now goes straight to
 		// the beginning index (insertionPoint) making it the process faster
 
-		for (Term termQuick : termsArray) {
+		try {
 
-			while (termQuick.getTermName().startsWith(prefix) && it.hasNext()) {
-				binaryResult.add(termQuick.getTermName());
+			for (Term termQuick : termsArray) {
+
+				while (termQuick.getTermName().startsWith(prefix) && listIterator.hasNext()) {
+					binaryResult.add(termQuick.getTermName());
+				}
 			}
+
+		} catch (NullPointerException e) {
+
+			System.err.println("NullPointerException: " + e.getMessage());
+
 		}
 
 		return binaryResult;
 
-	}
-
-	private static void printTermsArray(ArrayList<Term> termsArray) {
-		System.out.println("First 250 Terms After Sorting: ");
-		System.out.println("");
-		for (int i = 0; i <= 250; i++) {
-			System.out.println(termsArray.get(i).getTermName());
-		}
 	}
 
 }

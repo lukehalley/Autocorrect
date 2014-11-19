@@ -7,13 +7,13 @@ import java.util.List;
 
 import org.junit.Test;
 
-import autocorret.BruteAutocomplete;
+import autocorret.QuickAutocomplete;
 
-public class BruteAutoCompleteTest {
+public class QuickAutoCompleteTest {
 
 	@Test
 	public void testWeightOf() {
-		BruteAutocomplete testWeightOf = new BruteAutocomplete();
+		QuickAutocomplete testWeightOf = new QuickAutocomplete();
 		double output = testWeightOf.weightOf("hello");
 
 		assertEquals(5, output, output);
@@ -22,7 +22,7 @@ public class BruteAutoCompleteTest {
 
 	@Test
 	public void testBestMatch() {
-		BruteAutocomplete testBestMatch = new BruteAutocomplete();
+		QuickAutocomplete testBestMatch = new QuickAutocomplete();
 		String output = testBestMatch.bestMatch("hell");
 
 		assertEquals("hell", output);
@@ -40,7 +40,7 @@ public class BruteAutoCompleteTest {
 		expected.add("add");
 		expected.add("advanced");
 
-		BruteAutocomplete testMatches = new BruteAutocomplete();
+		QuickAutocomplete testMatches = new QuickAutocomplete();
 		Iterable<String> output = testMatches.matches("ad", 5);
 
 		assertEquals(expected, output);
