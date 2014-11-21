@@ -12,6 +12,7 @@ import autocorret.Term;
 public class TermTest
 { 
   Term hello = new Term ("hello", 234723);
+// Verify term equality and natural ordering
 
   @Test
   public void testCreate()
