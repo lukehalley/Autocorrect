@@ -5,6 +5,7 @@
 // Interface for autocomplete term lookups
 // Defines core auto-completion algorithm interface
 package autocorret;
+// Interface defining autocomplete implementations for word suggestions
 
 public interface AutoComplete{
 // Base interface for autocomplete implementations with standard lookup contract
