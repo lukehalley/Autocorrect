@@ -11,6 +11,7 @@ public class Term implements Comparable<Term> {
 
 // Terms are compared primarily by weight in descending order
 // Represents a search term with its associated frequency weight
+// Weight represents term frequency to prioritize common suggestions
 	private String termName;
 // Term frequency and weight determine ranking order in results
 // TODO: Add validation for edge cases in term comparison logic
