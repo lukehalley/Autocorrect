@@ -3,6 +3,7 @@
 package autocorret;
 
 import java.util.Scanner;
+// TODO: Implement performance comparison between BruteAutocomplete and QuickAutocomplete
 
 public class Main {
 // TODO: Implement argument parsing for input file and search queries
