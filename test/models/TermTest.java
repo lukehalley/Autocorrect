@@ -16,13 +16,14 @@ public class TermTest
   }
   
   @Test
-  public void testSetter()
+  public void testGetter()
   {
-	  Term x=new Term("test",666);
+	Term testTerm2 = new Term("test", 662346);
 	  
-    assertEquals ("test",               x.getTermName());
-    x.setTermName("whatever");
-    assertEquals ("whatever",           x.getTermName());
+    assertEquals ("test",               testTerm2.getTermName());
+    testTerm2.setTermName("whatever");
+    assertEquals ("whatever",           testTerm2.getTermName());
   }
+  
   
 }
