@@ -1,4 +1,5 @@
 package autocorret;
+//compar
 public class Term {
 	
 	private String termName;
