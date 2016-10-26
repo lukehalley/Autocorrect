@@ -1,6 +1,6 @@
 package autocorret;
 //compar
-public class Term {
+public class Term implements Comparable<Term>{
 	
 	private String termName;
 	private long weight;
@@ -30,6 +30,11 @@ public class Term {
 	@Override
 	public String toString() {
 		return "WEIGHT: '" + this.weight + "', WORD: '" + this.termName + "'";
+	}
+
+	@Override
+	public int compareTo(Term o) {
+		return this.getTermName().compareTo(o.getTermName());
 	}
 	
 

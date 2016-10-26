@@ -3,13 +3,14 @@ package autocorret;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class BruteAutocomplete implements AutoComplete {
+public class QuickAutocompete implements AutoComplete {
 
 	private ArrayList<Term> termsArray = new ArrayList<Term>();
 
-	public BruteAutocomplete() {
+	public QuickAutocompete() {
 		loadTerms();
 		weightOf("the");
 		bestMatch("st");
@@ -46,6 +47,8 @@ public class BruteAutocomplete implements AutoComplete {
 				} else {
 					inUsers.close();
 				}
+				
+				Collections.sort(termsArray);
 
 			}
 
