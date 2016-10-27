@@ -1,12 +1,11 @@
 package autocorret;
-//compar
-public class Term implements Comparable<Term>{
-	
+
+public class Term implements Comparable<Term> {
+
 	private String termName;
 	private long weight;
-	
-	public Term (String termName, long weight)
-	{
+
+	public Term(String termName, long weight) {
 		this.setTermName(termName);
 		this.setWeight(weight);
 	}
@@ -26,7 +25,7 @@ public class Term implements Comparable<Term>{
 	public void setTermName(String termName) {
 		this.termName = termName;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "WEIGHT: '" + this.weight + "', WORD: '" + this.termName + "'";
@@ -36,8 +35,5 @@ public class Term implements Comparable<Term>{
 	public int compareTo(Term o) {
 		return this.getTermName().compareTo(o.getTermName());
 	}
-	
 
 }
-
-
