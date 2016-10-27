@@ -38,7 +38,6 @@ public class BruteAutocomplete implements AutoComplete {
 
 				// output user data to console.
 				if (wordTokens.length == 2) {
-					System.out.println("Word Weight: " + wordTokens[0] + " Word: " + wordTokens[1]);
 					Term t = new Term(wordTokens[1], Long.parseLong(wordTokens[0]));
 					termsArray.add(t);
 					// collections.
@@ -53,6 +52,8 @@ public class BruteAutocomplete implements AutoComplete {
 			e.printStackTrace();
 
 		}
+		
+		printArrayList(termsArray);
 
 	}
 
@@ -114,6 +115,16 @@ public class BruteAutocomplete implements AutoComplete {
 
 		return result;
 
+	}
+	
+	private static void printArrayList (ArrayList<Term> termsArray) {
+		System.out.println("First 250 Terms Before Sorting: ");
+		System.out.println("");
+	    for (int i = 0; i <= 250; i++) {
+	        System.out.println(termsArray.get(i).getTermName());
+	    }
+	    System.out.println("");
+	    
 	}
 
 }
