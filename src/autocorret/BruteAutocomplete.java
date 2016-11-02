@@ -83,12 +83,12 @@ public class BruteAutocomplete implements AutoComplete {
 		String bestTerm = null;
 		long bestWeight = -1;
 
-		for (Term t : termsArray) {
+		for (Term termBrute : termsArray) {
 
-			if (t.getTermName().startsWith(prefix) && (bestWeight < t.getWeight())) {
+			if (termBrute.getTermName().startsWith(prefix) && (bestWeight < termBrute.getWeight())) {
 
-				bestWeight = t.getWeight();
-				bestTerm = t.getTermName();
+				bestWeight = termBrute.getWeight();
+				bestTerm = termBrute.getTermName();
 
 			}
 
@@ -101,19 +101,19 @@ public class BruteAutocomplete implements AutoComplete {
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 
-		ArrayList<String> result = new ArrayList<>();
+		ArrayList<String> bruteResult = new ArrayList<>();
 
 		for (Term t : termsArray) {
 			// make for loops into one
-			if (t.getTermName().startsWith(prefix) && (result.size() <= k)) {
+			if (t.getTermName().startsWith(prefix) && (bruteResult.size() <= k)) {
 
-				result.add(t.getTermName());
+				bruteResult.add(t.getTermName());
 
 			}
 
 		}
 
-		return result;
+		return bruteResult;
 
 	}
 	
