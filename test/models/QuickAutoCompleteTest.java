@@ -11,24 +11,27 @@ import autocorret.QuickAutocomplete;
 
 public class QuickAutoCompleteTest {
 
+	//Tests the bestMatch Method by passing the prefix "hell" in, expecting an output of "hell"
 	@Test
 	public void testWeightOf() {
 		QuickAutocomplete testWeightOf = new QuickAutocomplete();
-		double output = testWeightOf.weightOf("hello");
+		double output = testWeightOf.weightOf("the");
 
-		assertEquals(5, output, output);
+		assertEquals(3, output, output);
 
 	}
 
+	//Tests the bestMatch Method by passing the prefix "ad" in, expecting an output of "ad"
 	@Test
 	public void testBestMatch() {
 		QuickAutocomplete testBestMatch = new QuickAutocomplete();
-		String output = testBestMatch.bestMatch("hell");
+		String output = testBestMatch.bestMatch("ad");
 
-		assertEquals("hell", output);
+		assertEquals("ad", output);
 
 	}
 
+	//Tests the Matches Method by passing the prefix "ad" in, expecting an output of that matches the "expected" Array.
 	@Test
 	public void testMatches() {
 
