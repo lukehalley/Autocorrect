@@ -1,3 +1,5 @@
+// Luke Halley - 20071820
+
 package autocorret;
 
 import java.util.Scanner;
