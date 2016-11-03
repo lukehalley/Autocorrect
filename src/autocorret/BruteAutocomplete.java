@@ -11,9 +11,6 @@ public class BruteAutocomplete implements AutoComplete {
 
 	public BruteAutocomplete() {
 		loadTerms();
-		weightOf("the");
-		bestMatch("st");
-		matches("be", 32);
 	}
 
 	// Loads all terms from wiktionary.txt, taking away the spaces and lines.
@@ -52,8 +49,6 @@ public class BruteAutocomplete implements AutoComplete {
 			e.printStackTrace();
 
 		}
-		
-		printArrayList(termsArray);
 
 	}
 
@@ -63,14 +58,20 @@ public class BruteAutocomplete implements AutoComplete {
 
 		long weightOfString = 0;
 
-		for (Term t : termsArray) {
+		try {
 
-			if (t.getTermName().equals(term)) {
+			for (Term t : termsArray) {
 
-				weightOfString = t.getWeight();
+				if (t.getTermName().equals(term)) {
+
+					weightOfString = t.getWeight();
+
+				}
 
 			}
 
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException: " + e.getMessage());
 		}
 
 		return weightOfString;
@@ -83,48 +84,50 @@ public class BruteAutocomplete implements AutoComplete {
 		String bestTerm = null;
 		long bestWeight = -1;
 
-		for (Term termBrute : termsArray) {
+		try {
 
-			if (termBrute.getTermName().startsWith(prefix) && (bestWeight < termBrute.getWeight())) {
+			for (Term termBrute : termsArray) {
 
-				bestWeight = termBrute.getWeight();
-				bestTerm = termBrute.getTermName();
+				if (termBrute.getTermName().startsWith(prefix) && (bestWeight < termBrute.getWeight())) {
+
+					bestWeight = termBrute.getWeight();
+					bestTerm = termBrute.getTermName();
+
+				}
 
 			}
 
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException: " + e.getMessage());
 		}
 
 		return bestTerm;
 	}
 
-	// Returns a number of Strings with their Weights.
+	// Returns a k amount of strings with the prefix
 	@Override
 	public Iterable<String> matches(String prefix, int k) {
 
 		ArrayList<String> bruteResult = new ArrayList<>();
 
-		for (Term t : termsArray) {
-			// make for loops into one
-			if (t.getTermName().startsWith(prefix) && (bruteResult.size() <= k)) {
+		try {
 
-				bruteResult.add(t.getTermName());
+			for (Term t : termsArray) {
+				// make for loops into one
+				if (t.getTermName().startsWith(prefix) && (bruteResult.size() <= k)) {
+
+					bruteResult.add(t.getTermName());
+
+				}
 
 			}
 
+		} catch (NullPointerException e) {
+			System.err.println("NullPointerException: " + e.getMessage());
 		}
 
 		return bruteResult;
 
-	}
-	
-	private static void printArrayList (ArrayList<Term> termsArray) {
-		System.out.println("First 250 Terms Before Sorting: ");
-		System.out.println("");
-	    for (int i = 0; i <= 250; i++) {
-	        System.out.println(termsArray.get(i).getTermName());
-	    }
-	    System.out.println("");
-	    
 	}
 
 }
